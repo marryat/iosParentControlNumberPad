@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		853F033119BA59070042BE39 /* SimpleAddAccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 853F033019BA59070042BE39 /* SimpleAddAccessView.m */; };
 		8547D0F919B867F4005BCA31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8547D0F819B867F4005BCA31 /* main.m */; };
 		8547D0FC19B867F4005BCA31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8547D0FB19B867F4005BCA31 /* AppDelegate.m */; };
 		8547D0FF19B867F4005BCA31 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8547D0FE19B867F4005BCA31 /* ViewController.m */; };
 		8547D10219B867F4005BCA31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8547D10019B867F4005BCA31 /* Main.storyboard */; };
 		8547D10419B867F4005BCA31 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8547D10319B867F4005BCA31 /* Images.xcassets */; };
 		8547D11019B867F5005BCA31 /* iOSParentalControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8547D10F19B867F5005BCA31 /* iOSParentalControlTests.m */; };
+		857B9F7B19B9221500BD3D6A /* SimpleAddAccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857B9F7A19B9221500BD3D6A /* SimpleAddAccessView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		853F032F19BA59070042BE39 /* SimpleAddAccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAddAccessView.h; sourceTree = "<group>"; };
+		853F033019BA59070042BE39 /* SimpleAddAccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAddAccessView.m; sourceTree = "<group>"; };
 		8547D0F319B867F4005BCA31 /* iOSParentalControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSParentalControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8547D0F719B867F4005BCA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8547D0F819B867F4005BCA31 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -38,6 +42,7 @@
 		8547D10919B867F5005BCA31 /* iOSParentalControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSParentalControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8547D10E19B867F5005BCA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8547D10F19B867F5005BCA31 /* iOSParentalControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSParentalControlTests.m; sourceTree = "<group>"; };
+		857B9F7A19B9221500BD3D6A /* SimpleAddAccessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleAddAccessView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +88,9 @@
 				8547D0FB19B867F4005BCA31 /* AppDelegate.m */,
 				8547D0FD19B867F4005BCA31 /* ViewController.h */,
 				8547D0FE19B867F4005BCA31 /* ViewController.m */,
+				857B9F7A19B9221500BD3D6A /* SimpleAddAccessView.xib */,
+				853F032F19BA59070042BE39 /* SimpleAddAccessView.h */,
+				853F033019BA59070042BE39 /* SimpleAddAccessView.m */,
 				8547D10019B867F4005BCA31 /* Main.storyboard */,
 				8547D10319B867F4005BCA31 /* Images.xcassets */,
 				8547D0F619B867F4005BCA31 /* Supporting Files */,
@@ -197,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8547D10219B867F4005BCA31 /* Main.storyboard in Resources */,
+				857B9F7B19B9221500BD3D6A /* SimpleAddAccessView.xib in Resources */,
 				8547D10419B867F4005BCA31 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				853F033119BA59070042BE39 /* SimpleAddAccessView.m in Sources */,
 				8547D0FF19B867F4005BCA31 /* ViewController.m in Sources */,
 				8547D0FC19B867F4005BCA31 /* AppDelegate.m in Sources */,
 				8547D0F919B867F4005BCA31 /* main.m in Sources */,
@@ -406,6 +416,7 @@
 				8547D11519B867F5005BCA31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8547D11619B867F5005BCA31 /* Build configuration list for PBXNativeTarget "iOSParentalControlTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +425,7 @@
 				8547D11819B867F5005BCA31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
