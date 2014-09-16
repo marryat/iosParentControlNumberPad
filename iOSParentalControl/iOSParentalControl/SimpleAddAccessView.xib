@@ -12,8 +12,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMt-3E-PV9">
-                    <rect key="frame" x="40" y="134" width="81" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMt-3E-PV9">
+                    <rect key="frame" x="42" y="134" width="80" height="80"/>
                     <color key="backgroundColor" red="0.4549019608" green="0.75294117650000003" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="KrV-rP-pMZ"/>
@@ -26,8 +26,8 @@
                         <action selector="button1Action:" destination="iN0-l3-epB" eventType="touchUpInside" id="iaW-U7-BLz"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO7-8j-Qh7">
-                    <rect key="frame" x="120" y="134" width="81" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO7-8j-Qh7">
+                    <rect key="frame" x="121" y="134" width="80" height="80"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="XLP-OV-03b"/>
@@ -55,8 +55,8 @@
                         <action selector="button3Action:" destination="iN0-l3-epB" eventType="touchUpInside" id="8jg-Cd-UlM"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdy-yr-ffj">
-                    <rect key="frame" x="40" y="214" width="80" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xdy-yr-ffj">
+                    <rect key="frame" x="41" y="213" width="80" height="80"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="G6n-h7-9q5"/>
@@ -70,8 +70,8 @@
                         <action selector="button4Action:" destination="iN0-l3-epB" eventType="touchUpInside" id="tcp-qQ-SBH"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXO-3r-cgr">
-                    <rect key="frame" x="120" y="214" width="80" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXO-3r-cgr">
+                    <rect key="frame" x="120" y="213" width="80" height="80"/>
                     <color key="backgroundColor" red="0.4549019608" green="0.75294117650000003" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="fig-lU-8hG"/>
@@ -84,8 +84,8 @@
                         <action selector="button5Action:" destination="iN0-l3-epB" eventType="touchUpInside" id="q1W-xY-fwR"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efU-xw-Sop">
-                    <rect key="frame" x="200" y="214" width="80" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efU-xw-Sop">
+                    <rect key="frame" x="199" y="213" width="80" height="80"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="YFu-Mf-OfS"/>
@@ -99,8 +99,8 @@
                         <action selector="button6Action:" destination="iN0-l3-epB" eventType="touchUpInside" id="XU8-EF-K7p"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hh4-KR-NLq">
-                    <rect key="frame" x="40" y="294" width="80" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hh4-KR-NLq">
+                    <rect key="frame" x="41" y="292" width="80" height="80"/>
                     <color key="backgroundColor" red="0.4549019608" green="0.75294117650000003" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Hh4-KR-NLq" secondAttribute="height" multiplier="1:1" id="bZN-OI-aFl"/>
@@ -113,8 +113,8 @@
                         <action selector="button7Action:" destination="iN0-l3-epB" eventType="touchUpInside" id="9Ew-Z4-Qwo"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbx-pe-yuc">
-                    <rect key="frame" x="120" y="294" width="80" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbx-pe-yuc">
+                    <rect key="frame" x="120" y="292" width="80" height="80"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="AyG-b6-H0R"/>
@@ -128,8 +128,8 @@
                         <action selector="button8Action:" destination="iN0-l3-epB" eventType="touchUpInside" id="z5U-4Y-HxA"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KT1-ta-sOa">
-                    <rect key="frame" x="200" y="294" width="80" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KT1-ta-sOa">
+                    <rect key="frame" x="199" y="292" width="80" height="80"/>
                     <color key="backgroundColor" red="0.4549019608" green="0.75294117650000003" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="DhO-rh-Die"/>
@@ -142,8 +142,8 @@
                         <action selector="button9Action:" destination="iN0-l3-epB" eventType="touchUpInside" id="u4Q-B6-xRM"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcP-DK-mVh">
-                    <rect key="frame" x="40" y="374" width="80" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BcP-DK-mVh">
+                    <rect key="frame" x="41" y="371" width="80" height="80"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="Iod-Ze-pYG"/>
@@ -154,8 +154,8 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4h-tC-and">
-                    <rect key="frame" x="120" y="374" width="80" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4h-tC-and">
+                    <rect key="frame" x="120" y="371" width="80" height="80"/>
                     <color key="backgroundColor" red="0.4549019608" green="0.75294117650000003" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="q4h-tC-and" secondAttribute="height" multiplier="1:1" id="fK1-d8-D4T"/>
@@ -168,14 +168,14 @@
                         <action selector="button0Action:" destination="iN0-l3-epB" eventType="touchUpInside" id="ftf-en-YaK"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5U-Rq-dvO" userLabel="Question Label">
-                    <rect key="frame" x="71" y="57" width="179" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5U-Rq-dvO" userLabel="Question Label">
+                    <rect key="frame" x="139" y="57" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8D-C8-9Jg">
-                    <rect key="frame" x="200" y="374" width="80" height="80"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8D-C8-9Jg">
+                    <rect key="frame" x="199" y="371" width="80" height="80"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Y8D-C8-9Jg" secondAttribute="height" multiplier="1:1" id="L3I-5z-rtO"/>
@@ -185,6 +185,9 @@
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="deleteButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ePl-jb-jgF"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

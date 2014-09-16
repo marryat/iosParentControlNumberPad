@@ -21,11 +21,23 @@
     [self addTarget:self action:@selector(buttonRemoveHighlight:) forControlEvents:UIControlEventTouchUpOutside];
     [self addTarget:self action:@selector(buttonRemoveHighlight:) forControlEvents:UIControlEventTouchDragOutside];
     [self addTarget:self action:@selector(buttonHighlight:) forControlEvents:UIControlEventTouchDragEnter];
+    [self addTarget:self action:@selector(buttonFadeOut:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (IBAction)buttonHighlight:(id)sender {
     UIButton *btn = (UIButton *)sender;
     btn.backgroundColor = [UIColor grayColor];
+}
+
+- (IBAction)buttonFadeOut:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    btn.backgroundColor = [UIColor groupTableViewBackgroundColor];
+    
+    [UIView animateWithDuration:0.5f
+                     animations:^{
+                         btn.backgroundColor = [UIColor groupTableViewBackgroundColor];
+                     }];
+    
 }
 
 - (IBAction)buttonRemoveHighlight:(id)sender {

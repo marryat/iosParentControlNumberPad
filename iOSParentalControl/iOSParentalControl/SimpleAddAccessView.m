@@ -38,20 +38,25 @@ NSArray *_numberButtons;
     _userAnswer = @"";
     _originalQuestion = [NSString stringWithFormat:@"%d + %d =", firstNum, secondNum];
     
+    [self setupButtons];
+    
     [self updateDisplay];
     
 }
 
-- (void)updateDisplay {
-    self.questionLabel.text = [NSString stringWithFormat:@"%@ %@", _originalQuestion, _userAnswer];
-    
+- (void)setupButtons {
     _numberButtons = [[NSArray alloc] initWithObjects:self.number1Button, self.number2Button, self.number3Button, self.number4Button, self.number5Button, self.number6Button, self.number7Button, self.number8Button, self.number9Button, self.number0Button, nil];
     
     for (UIButton *btn in _numberButtons) {
         [btn ipc_ApplyPinButtonStyleAndHighlights];
     }
     
-    [self setupDeleteButton:self.deleteButton];
+    [self.deleteButton ipc_ApplyPinButtonStyleAndHighlights];
+}
+
+- (void)updateDisplay {
+    self.questionLabel.text = [NSString stringWithFormat:@"%@ %@", _originalQuestion, _userAnswer];
+    
 }
 
 - (void)buttonPressedWithNumber:(int)number button:(UIButton*)btn {
@@ -60,46 +65,48 @@ NSArray *_numberButtons;
         [self updateDisplay];
     }
     
-    [UIView animateWithDuration:0.5f
-                     animations:^{
-                         btn.backgroundColor = [UIColor groupTableViewBackgroundColor];
-                     }];
-    
 }
 
 - (void)setupDeleteButton:(UIButton *)btn {
     [btn.layer setBorderWidth:0.5];
 }
 
-- (IBAction)button1Action:(id)sender {
+- (IBAction)button1Action:(UIButton *)sender {
     [self buttonPressedWithNumber:1 button:sender];
 }
-- (IBAction)button2Action:(id)sender {
+- (IBAction)button2Action:(UIButton *)sender {
     [self buttonPressedWithNumber:2 button:sender];
 }
-- (IBAction)button3Action:(id)sender {
+- (IBAction)button3Action:(UIButton *)sender {
     [self buttonPressedWithNumber:3 button:sender];
 }
-- (IBAction)button4Action:(id)sender {
+- (IBAction)button4Action:(UIButton *)sender {
     [self buttonPressedWithNumber:4 button:sender];
 }
-- (IBAction)button5Action:(id)sender {
+- (IBAction)button5Action:(UIButton *)sender {
     [self buttonPressedWithNumber:5 button:sender];
 }
-- (IBAction)button6Action:(id)sender {
+- (IBAction)button6Action:(UIButton *)sender {
     [self buttonPressedWithNumber:6 button:sender];
 }
-- (IBAction)button7Action:(id)sender {
+- (IBAction)button7Action:(UIButton *)sender {
     [self buttonPressedWithNumber:7 button:sender];
 }
-- (IBAction)button8Action:(id)sender {
+- (IBAction)button8Action:(UIButton *)sender {
     [self buttonPressedWithNumber:8 button:sender];
 }
-- (IBAction)button9Action:(id)sender {
+- (IBAction)button9Action:(UIButton *)sender {
     [self buttonPressedWithNumber:9 button:sender];
 }
-- (IBAction)button0Action:(id)sender {
+- (IBAction)button0Action:(UIButton *)sender {
     [self buttonPressedWithNumber:0 button:sender];
+}
+-(IBAction)deleteButtonAction:(UIButton*)sender {
+    if ([_userAnswer length] > 0) {
+        _userAnswer = [_userAnswer substringToIndex:[_userAnswer length] - 1];
+    }
+
+    [self updateDisplay];
 }
 
 
