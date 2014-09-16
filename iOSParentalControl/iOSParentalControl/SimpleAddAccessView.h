@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *number0Button;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 @property (strong, nonatomic) NSString *DesiredAnswer;
 

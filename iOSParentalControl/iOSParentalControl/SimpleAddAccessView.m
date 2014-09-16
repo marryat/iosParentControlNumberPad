@@ -52,10 +52,13 @@ NSArray *_numberButtons;
     }
     
     [self.deleteButton ipc_ApplyPinButtonStyleAndHighlights];
+    [self.doneButton ipc_ApplyPinButtonStyleAndHighlights];
 }
 
 - (void)updateDisplay {
     self.questionLabel.text = [NSString stringWithFormat:@"%@ %@", _originalQuestion, _userAnswer];
+    
+    self.questionLabel.textColor = [UIColor darkTextColor];
     
 }
 
@@ -67,9 +70,7 @@ NSArray *_numberButtons;
     
 }
 
-- (void)setupDeleteButton:(UIButton *)btn {
-    [btn.layer setBorderWidth:0.5];
-}
+
 
 - (IBAction)button1Action:(UIButton *)sender {
     [self buttonPressedWithNumber:1 button:sender];
@@ -107,6 +108,15 @@ NSArray *_numberButtons;
     }
 
     [self updateDisplay];
+}
+-(IBAction)doneButtonAction:(UIButton*)sender {
+    if ([_userAnswer length] > 0) {
+        if ([_userAnswer isEqualToString:_expectedAnswer]) {
+            //TODO implement call back work.
+        } else {
+            self.questionLabel.textColor = [UIColor redColor];
+        }
+    }
 }
 
 

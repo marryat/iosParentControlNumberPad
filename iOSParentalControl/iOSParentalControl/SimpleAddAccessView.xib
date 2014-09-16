@@ -149,10 +149,13 @@
                         <constraint firstAttribute="width" constant="80" id="Iod-Ze-pYG"/>
                         <constraint firstAttribute="width" secondItem="BcP-DK-mVh" secondAttribute="height" multiplier="1:1" id="dNF-pw-guS"/>
                     </constraints>
-                    <state key="normal" title="1">
+                    <state key="normal" title="Done">
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="doneButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="aSS-Oh-ID5"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4h-tC-and">
                     <rect key="frame" x="120" y="371" width="80" height="80"/>
@@ -223,6 +226,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="deleteButton" destination="Y8D-C8-9Jg" id="n31-aF-45r"/>
+                <outlet property="doneButton" destination="BcP-DK-mVh" id="rhT-Zj-5V4"/>
                 <outlet property="number0Button" destination="q4h-tC-and" id="zpc-Gc-yPQ"/>
                 <outlet property="number1Button" destination="cMt-3E-PV9" id="xvp-4X-gb8"/>
                 <outlet property="number2Button" destination="PO7-8j-Qh7" id="ICi-Nx-mFg"/>
