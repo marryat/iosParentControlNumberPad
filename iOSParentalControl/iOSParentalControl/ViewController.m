@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import <QuartzCore/QuartzCore.h>
 #import "SimpleAddAccessView.h"
+#import "GrownUpHoldView.h"
 
 
 @interface ViewController ()
@@ -22,6 +22,7 @@
 
 UIColor *_backgColor;
 UIView *_backgroundButtonView;
+GrownUpHoldView *_grownUpHold;
 
 
 
@@ -29,18 +30,20 @@ UIView *_backgroundButtonView;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _backgColor = self.grownupButton.backgroundColor;
-    _backgroundButtonView = [[UIView alloc] initWithFrame:_grownupButton.frame];
-    [_grownupButton.superview addSubview:_backgroundButtonView];
-    [self.view sendSubviewToBack:_backgroundButtonView];
-
-    
-    self.parentButtonRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(grownupHoldPress:)];
-    
-    self.parentButtonRecognizer.minimumPressDuration = 3.0f;
-    self.parentButtonRecognizer.allowableMovement = 100.0f;
-    
-    [self.grownupButton addGestureRecognizer:self.parentButtonRecognizer];
+    _grownUpHold = [GrownUpHoldView initialiseWithButton:self.grownupButton andTopView:self.view];
+//    
+//    _backgColor = self.grownupButton.backgroundColor;
+//    _backgroundButtonView = [[UIView alloc] initWithFrame:_grownupButton.frame];
+//    [_grownupButton.superview addSubview:_backgroundButtonView];
+//    [self.view sendSubviewToBack:_backgroundButtonView];
+//
+//    
+//    self.parentButtonRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(grownupHoldPress:)];
+//    
+//    self.parentButtonRecognizer.minimumPressDuration = 3.0f;
+//    self.parentButtonRecognizer.allowableMovement = 100.0f;
+//    
+//    [self.grownupButton addGestureRecognizer:self.parentButtonRecognizer];
     
 }
 
@@ -49,17 +52,10 @@ UIView *_backgroundButtonView;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)launchSimpleAddAccessView {
-    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SimpleAddAccessView" owner:self options:nil];
-    SimpleAddAccessView *addView = [views firstObject];
-    [addView initialiseQuestion];
-    [self.view addSubview:addView];
-    
-}
 
-- (void)grownupHoldPress:(UILongPressGestureRecognizer *)sender {
-    [self launchSimpleAddAccessView];
-}
+//- (void)grownupHoldPress:(UILongPressGestureRecognizer *)sender {
+//    [self launchSimpleAddAccessView];
+//}
 
 - (void)setBackgroundGolorForButton:(BOOL)setBackgroundColor {
     _backgroundButtonView.backgroundColor = [UIColor greenColor];
@@ -76,7 +72,7 @@ UIView *_backgroundButtonView;
             
         } completion:^(BOOL finished) {
             
-            [self launchSimpleAddAccessView];
+//            [self launchSimpleAddAccessView];
         }];
     } else {
         [_backgroundButtonView.layer removeAllAnimations];
