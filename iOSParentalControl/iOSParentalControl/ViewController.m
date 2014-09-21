@@ -10,9 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SimpleAddAccessView.h"
 
+
 @interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *grownupButton;
+@property (strong, nonatomic) UILongPressGestureRecognizer *parentButtonRecognizer;
 
 @end
 
@@ -20,6 +22,7 @@
 
 UIColor *_backgColor;
 UIView *_backgroundButtonView;
+
 
 
 - (void)viewDidLoad {
@@ -30,6 +33,15 @@ UIView *_backgroundButtonView;
     _backgroundButtonView = [[UIView alloc] initWithFrame:_grownupButton.frame];
     [_grownupButton.superview addSubview:_backgroundButtonView];
     [self.view sendSubviewToBack:_backgroundButtonView];
+
+    
+    self.parentButtonRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(grownupHoldPress:)];
+    
+    self.parentButtonRecognizer.minimumPressDuration = 3.0f;
+    self.parentButtonRecognizer.allowableMovement = 100.0f;
+    
+    [self.grownupButton addGestureRecognizer:self.parentButtonRecognizer];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +55,10 @@ UIView *_backgroundButtonView;
     [addView initialiseQuestion];
     [self.view addSubview:addView];
     
+}
+
+- (void)grownupHoldPress:(UILongPressGestureRecognizer *)sender {
+    [self launchSimpleAddAccessView];
 }
 
 - (void)setBackgroundGolorForButton:(BOOL)setBackgroundColor {
@@ -59,8 +75,8 @@ UIView *_backgroundButtonView;
             _backgroundButtonView.frame = newFrame;
             
         } completion:^(BOOL finished) {
+            
             [self launchSimpleAddAccessView];
-            //TODO: this is something to do later.
         }];
     } else {
         [_backgroundButtonView.layer removeAllAnimations];
@@ -72,18 +88,21 @@ UIView *_backgroundButtonView;
 }
 
 - (IBAction)theTouchDown:(id)sender {
-    [self setBackgroundGolorForButton:true];
+
 }
 
 - (IBAction)theTouchUpInside:(id)sender {
     [self setBackgroundGolorForButton:false];
+    NSLog(@"Should cancel gesture");
 }
 
 - (IBAction)theTouchUpOutside:(id)sender {
     [self setBackgroundGolorForButton:false];
+    NSLog(@"Should cancel gesture");
 }
 - (IBAction)theTouchDragOutside:(id)sender {
     [self setBackgroundGolorForButton:false];
+    NSLog(@"Should cancel gesture");
 }
 
 @end

@@ -70,8 +70,6 @@ NSArray *_numberButtons;
     
 }
 
-
-
 - (IBAction)button1Action:(UIButton *)sender {
     [self buttonPressedWithNumber:1 button:sender];
 }
