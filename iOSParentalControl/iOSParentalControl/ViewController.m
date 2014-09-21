@@ -35,6 +35,8 @@
     _grownUpCheckControl = [[GrownUpCheckControl alloc] initWithFrame:grownUpFrame];
     _grownUpCheckControl.backgroundColor = [UIColor redColor];
     
+    _grownUpCheckControl.buttonTitle = @"Grownup stuff";
+    
     [self.view addSubview:_grownUpCheckControl];
     
     _backgColor = self.grownupButton.backgroundColor;

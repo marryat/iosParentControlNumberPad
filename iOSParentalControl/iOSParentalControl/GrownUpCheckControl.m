@@ -7,11 +7,13 @@
 //
 
 #import "GrownUpCheckControl.h"
+#import "SimpleAddAccessView.h"
 
 @interface GrownUpCheckControl ()
 
 @property (nonatomic, strong) UIButton *holdButton;
 @property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 
 @end
 
@@ -33,11 +35,30 @@
         [self addSubview:_backgroundView];
         [self addSubview:_holdButton];
         
+        _longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
+        _longPressGesture.minimumPressDuration = 3.0f;
+        _longPressGesture.allowableMovement = 100.0f;
+        
+        [_holdButton addGestureRecognizer:_longPressGesture];
+        
     }
     
     return self;
 }
 
+- (void)longPressAction:(UILongPressGestureRecognizer *)sender
+{
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SimpleAddAccessView" owner:self options:nil];
+        SimpleAddAccessView *addView = [views firstObject];
+        [addView initialiseQuestion];
+        [self.superview addSubview:addView];
+    }
+    else if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        NSLog(@"ended Event");
+    }
+}
 
 - (void)setButtonTitle:(NSString *)buttonTitle
 {
