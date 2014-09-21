@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8517104B19CF759400C4466E /* GrownUpCheckControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8517104A19CF759400C4466E /* GrownUpCheckControl.m */; };
 		853F033119BA59070042BE39 /* SimpleAddAccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 853F033019BA59070042BE39 /* SimpleAddAccessView.m */; };
 		8547D0F919B867F4005BCA31 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8547D0F819B867F4005BCA31 /* main.m */; };
 		8547D0FC19B867F4005BCA31 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8547D0FB19B867F4005BCA31 /* AppDelegate.m */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8517104919CF759400C4466E /* GrownUpCheckControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrownUpCheckControl.h; sourceTree = "<group>"; };
+		8517104A19CF759400C4466E /* GrownUpCheckControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrownUpCheckControl.m; sourceTree = "<group>"; };
 		853F032F19BA59070042BE39 /* SimpleAddAccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAddAccessView.h; sourceTree = "<group>"; };
 		853F033019BA59070042BE39 /* SimpleAddAccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleAddAccessView.m; sourceTree = "<group>"; };
 		8547D0F319B867F4005BCA31 /* iOSParentalControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSParentalControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +94,8 @@
 				8547D0FB19B867F4005BCA31 /* AppDelegate.m */,
 				8547D0FD19B867F4005BCA31 /* ViewController.h */,
 				8547D0FE19B867F4005BCA31 /* ViewController.m */,
+				8517104919CF759400C4466E /* GrownUpCheckControl.h */,
+				8517104A19CF759400C4466E /* GrownUpCheckControl.m */,
 				857B9F7A19B9221500BD3D6A /* SimpleAddAccessView.xib */,
 				853F032F19BA59070042BE39 /* SimpleAddAccessView.h */,
 				853F033019BA59070042BE39 /* SimpleAddAccessView.m */,
@@ -232,6 +237,7 @@
 				853F033119BA59070042BE39 /* SimpleAddAccessView.m in Sources */,
 				8547D0FF19B867F4005BCA31 /* ViewController.m in Sources */,
 				85BB9A4819BB396100FE6786 /* UIButton+IPCAdditions.m in Sources */,
+				8517104B19CF759400C4466E /* GrownUpCheckControl.m in Sources */,
 				8547D0FC19B867F4005BCA31 /* AppDelegate.m in Sources */,
 				8547D0F919B867F4005BCA31 /* main.m in Sources */,
 			);

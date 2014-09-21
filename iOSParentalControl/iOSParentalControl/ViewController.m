@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SimpleAddAccessView.h"
+#import "GrownUpCheckControl.h"
 
 
 @interface ViewController ()
@@ -18,16 +19,23 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController {
 
-UIColor *_backgColor;
-UIView *_backgroundButtonView;
-
-
+    UIColor *_backgColor;
+    UIView *_backgroundButtonView;
+    GrownUpCheckControl *_grownUpCheckControl;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    CGRect grownUpFrame = CGRectMake(20, 20, 200, 30);
+    _grownUpCheckControl = [[GrownUpCheckControl alloc] initWithFrame:grownUpFrame];
+    _grownUpCheckControl.backgroundColor = [UIColor redColor];
+    
+    [self.view addSubview:_grownUpCheckControl];
     
     _backgColor = self.grownupButton.backgroundColor;
     _backgroundButtonView = [[UIView alloc] initWithFrame:_grownupButton.frame];
