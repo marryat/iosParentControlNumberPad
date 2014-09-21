@@ -110,7 +110,7 @@ NSArray *_numberButtons;
 -(IBAction)doneButtonAction:(UIButton*)sender {
     if ([_userAnswer length] > 0) {
         if ([_userAnswer isEqualToString:_expectedAnswer]) {
-            //TODO implement call back work.
+            [self.delegate answerIsCorrect:self];
         } else {
             self.questionLabel.textColor = [UIColor redColor];
         }

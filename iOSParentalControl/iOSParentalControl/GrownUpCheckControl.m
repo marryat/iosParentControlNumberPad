@@ -7,13 +7,13 @@
 //
 
 #import "GrownUpCheckControl.h"
-#import "SimpleAddAccessView.h"
 
 @interface GrownUpCheckControl ()
 
 @property (nonatomic, strong) UIButton *holdButton;
 @property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
+@property (nonatomic, strong) SimpleAddAccessView *addAccessView;
 
 @end
 
@@ -50,9 +50,10 @@
 {
     if (sender.state == UIGestureRecognizerStateBegan) {
         NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SimpleAddAccessView" owner:self options:nil];
-        SimpleAddAccessView *addView = [views firstObject];
-        [addView initialiseQuestion];
-        [self.superview addSubview:addView];
+        _addAccessView = [views firstObject];
+        [_addAccessView initialiseQuestion];
+        _addAccessView.delegate = self;
+        [self.superview addSubview:_addAccessView];
     }
     else if (sender.state == UIGestureRecognizerStateEnded)
     {
@@ -66,6 +67,13 @@
     [self.holdButton setTitle:_buttonTitle forState:UIControlStateNormal];
 }
 
+- (void)setDurationOfHold:(float)durationOfHold
+{
+    _durationOfHold = durationOfHold;
+    _longPressGesture.minimumPressDuration = durationOfHold;
+    
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -74,5 +82,16 @@
     // Drawing code
 }
 */
+
+#pragma mark - SimpleAddAccessViewDelegate
+
+- (void)answerIsCorrect:(SimpleAddAccessView *)sender
+{
+    [_addAccessView removeFromSuperview];
+    _addAccessView = nil;
+    
+    //TODO need to implement call back
+    NSLog(@"Need to implement something here");
+}
 
 @end

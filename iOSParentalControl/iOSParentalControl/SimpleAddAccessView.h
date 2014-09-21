@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class SimpleAddAccessView;
+
+@protocol SimpleAddAccessViewDelegate <NSObject>
+
+- (void)answerIsCorrect:(SimpleAddAccessView *)sender;
+
+@end
+
 @interface SimpleAddAccessView : UIView
 
 @property (weak, nonatomic) IBOutlet UIButton *number1Button;
@@ -25,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 @property (strong, nonatomic) NSString *DesiredAnswer;
+
+@property (weak, nonatomic) id delegate;
 
 - (void)initialiseQuestion;
 
