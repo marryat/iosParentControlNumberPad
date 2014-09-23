@@ -13,6 +13,7 @@
 @protocol SimpleAddAccessViewDelegate <NSObject>
 
 - (void)answerIsCorrect:(SimpleAddAccessView *)sender;
+- (void)answerIsIncorrect:(SimpleAddAccessView *)sender;
 
 @end
 
@@ -34,7 +35,7 @@
 
 @property (strong, nonatomic) NSString *DesiredAnswer;
 
-@property (weak, nonatomic) id delegate;
+@property (weak, nonatomic) id <SimpleAddAccessViewDelegate> delegate;
 
 - (void)initialiseQuestion;
 

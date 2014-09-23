@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GrownUpCheckControl.h"
 
-@interface ViewController : UIViewController
+
+@interface ViewController : UIViewController <GrownUpCheckControlEventDelegate>
 
 
 @end

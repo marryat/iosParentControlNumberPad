@@ -9,10 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "SimpleAddAccessView.h"
 
+@class GrownUpCheckControl;
+
+@protocol GrownUpCheckControlEventDelegate <NSObject>
+
+- (void) grownUpCheckControlAnsweredCorrectly:(GrownUpCheckControl *)sender;
+@optional
+- (void) grownUpCheckControlAnsweredIncorrectly:(GrownUpCheckControl *)sender;
+
+@end
+
 @interface GrownUpCheckControl : UIControl <SimpleAddAccessViewDelegate>
 
 @property (nonatomic) NSString *buttonTitle;
 @property (nonatomic) UIColor *highlightColor;
 @property (nonatomic, assign) float durationOfHold;
+
+@property (nonatomic, weak) id <GrownUpCheckControlEventDelegate> delegate;
 
 @end

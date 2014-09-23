@@ -29,8 +29,12 @@
         CGRect totalFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
         
         _backgroundView = [[UIView alloc] initWithFrame:totalFrame];
-        _holdButton = [[UIButton alloc] initWithFrame:totalFrame];
+    
+        _holdButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        _holdButton.frame = totalFrame;
+        
         [_holdButton setTitle:_buttonTitle forState:UIControlStateNormal];
+
         
         [self addSubview:_backgroundView];
         [self addSubview:_holdButton];
@@ -49,15 +53,13 @@
 - (void)longPressAction:(UILongPressGestureRecognizer *)sender
 {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"SimpleAddAccessView" owner:self options:nil];
-        _addAccessView = [views firstObject];
-        [_addAccessView initialiseQuestion];
-        _addAccessView.delegate = self;
-        [self.superview addSubview:_addAccessView];
-    }
-    else if (sender.state == UIGestureRecognizerStateEnded)
-    {
-        NSLog(@"ended Event");
+        if (_addAccessView == nil) {
+            NSArray *views = [[NSBundle  mainBundle] loadNibNamed:@"SimpleAddAccessView" owner:self options:nil];
+            _addAccessView = [views firstObject];
+            [_addAccessView initialiseQuestion];
+            _addAccessView.delegate = self;
+            [self.superview addSubview:_addAccessView];
+        }
     }
 }
 
@@ -90,8 +92,16 @@
     [_addAccessView removeFromSuperview];
     _addAccessView = nil;
     
-    //TODO need to implement call back
-    NSLog(@"Need to implement something here");
+    [self.delegate grownUpCheckControlAnsweredCorrectly:self];
+
+}
+
+- (void)answerIsIncorrect:(SimpleAddAccessView *)sender
+{
+    if ([self.delegate respondsToSelector:@selector(grownUpCheckControlAnsweredIncorrectly:)])
+    {
+        [self.delegate grownUpCheckControlAnsweredIncorrectly:self];
+    }
 }
 
 @end

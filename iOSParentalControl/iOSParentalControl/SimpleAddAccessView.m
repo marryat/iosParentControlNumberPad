@@ -113,6 +113,7 @@ NSArray *_numberButtons;
             [self.delegate answerIsCorrect:self];
         } else {
             self.questionLabel.textColor = [UIColor redColor];
+            [self.delegate answerIsIncorrect:self];
         }
     }
 }
