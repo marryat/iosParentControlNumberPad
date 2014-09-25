@@ -63,6 +63,27 @@
             [_addAccessView initialiseQuestion];
             _addAccessView.delegate = self;
             [self.superview addSubview:_addAccessView];
+            
+            NSLog(@"superview dimensions (%f, %f)", self.superview.frame.size.width, self.superview.frame.size.height);
+            NSLog(@"first simpleView (%f, %f, %f, %f)", _addAccessView.frame.origin.x, _addAccessView.frame.origin.y, _addAccessView.frame.size.width, _addAccessView.frame.size.height);
+            
+            NSDictionary* viewDictionary = NSDictionaryOfVariableBindings(_addAccessView, self.superview);
+            
+            
+            [self.superview addConstraints:[NSLayoutConstraint
+                                            constraintsWithVisualFormat:@"H:|-[_addAccessView]-|"
+                                            options:0
+                                            metrics:nil
+                                            views:viewDictionary]];
+            [self.superview addConstraints:[NSLayoutConstraint
+                                            constraintsWithVisualFormat:@"V:|-[_addAccessView]-|"
+                                            options:0
+                                            metrics:nil
+                                            views:viewDictionary]];
+            
+            NSLog(@"first simpleView (%f, %f, %f, %f)", _addAccessView.frame.origin.x, _addAccessView.frame.origin.y, _addAccessView.frame.size.width, _addAccessView.frame.size.height);
+            ;
+           
         }
     }
 }

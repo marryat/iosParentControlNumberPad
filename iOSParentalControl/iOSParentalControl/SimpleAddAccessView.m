@@ -38,6 +38,8 @@ NSArray *_numberButtons;
     _userAnswer = @"";
     _originalQuestion = [NSString stringWithFormat:@"%d + %d =", firstNum, secondNum];
     
+    self.backgroundColor = [UIColor blueColor];
+    
     [self setupButtons];
     
     [self updateDisplay];
