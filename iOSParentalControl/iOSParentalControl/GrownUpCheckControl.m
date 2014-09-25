@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 @property (nonatomic, strong) SimpleAddAccessView *addAccessView;
+@property (nonatomic, strong) UIView *holdView;
 
 @end
 
@@ -32,18 +33,21 @@
     
         _holdButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         _holdButton.frame = totalFrame;
-        
         [_holdButton setTitle:_buttonTitle forState:UIControlStateNormal];
-
         
+        _holdView = [[UIView alloc] initWithFrame:totalFrame];
+//        [_holdView setText:_buttonTitle];
+        [_holdView setBackgroundColor:[UIColor redColor]];
+
         [self addSubview:_backgroundView];
-        [self addSubview:_holdButton];
+//        [self addSubview:_holdButton];
+        [self addSubview:_holdView];
         
         _longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
         _longPressGesture.minimumPressDuration = 3.0f;
         _longPressGesture.allowableMovement = 100.0f;
         
-        [_holdButton addGestureRecognizer:_longPressGesture];
+        [_holdView addGestureRecognizer:_longPressGesture];
         
     }
     
@@ -61,12 +65,6 @@
             [self.superview addSubview:_addAccessView];
         }
     }
-}
-
-- (void)setButtonTitle:(NSString *)buttonTitle
-{
-    _buttonTitle = buttonTitle;
-    [self.holdButton setTitle:_buttonTitle forState:UIControlStateNormal];
 }
 
 - (void)setDurationOfHold:(float)durationOfHold

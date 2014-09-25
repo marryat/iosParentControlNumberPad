@@ -20,8 +20,6 @@
 
 @implementation ViewController {
 
-    UIColor *_backgColor;
-    UIView *_backgroundButtonView;
     GrownUpCheckControl *_grownUpCheckControl;
     
 }
