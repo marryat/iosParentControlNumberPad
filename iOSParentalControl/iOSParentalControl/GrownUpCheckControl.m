@@ -10,11 +10,11 @@
 
 @interface GrownUpCheckControl ()
 
-@property (nonatomic, strong) UIButton *holdButton;
 @property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 @property (nonatomic, strong) SimpleAddAccessView *addAccessView;
 @property (nonatomic, strong) UIView *holdView;
+
 
 @end
 
@@ -27,20 +27,11 @@
         _buttonTitle = @"Grownup's press here";
         _highlightColor = [UIColor greenColor];
         
-        CGRect totalFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        CGRect pressFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
         
-        _backgroundView = [[UIView alloc] initWithFrame:totalFrame];
-    
-        _holdButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        _holdButton.frame = totalFrame;
-        [_holdButton setTitle:_buttonTitle forState:UIControlStateNormal];
-        
-        _holdView = [[UIView alloc] initWithFrame:totalFrame];
-//        [_holdView setText:_buttonTitle];
+        _holdView = [[UIView alloc] initWithFrame:pressFrame];
         [_holdView setBackgroundColor:[UIColor redColor]];
 
-        [self addSubview:_backgroundView];
-//        [self addSubview:_holdButton];
         [self addSubview:_holdView];
         
         _longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
@@ -58,13 +49,18 @@
 {
     if (sender.state == UIGestureRecognizerStateBegan) {
         if (_addAccessView == nil) {
+            
+            UIView *topView = self.window.rootViewController.view;
+            
+            _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, topView.frame.size.width, topView.frame.size.height)];
+            
+            [topView addSubview:_backgroundView];
+            
             NSArray *views = [[NSBundle  mainBundle] loadNibNamed:@"SimpleAddAccessView" owner:self options:nil];
             _addAccessView = [views firstObject];
             [_addAccessView initialiseQuestion];
             _addAccessView.delegate = self;
             [self.superview addSubview:_addAccessView];
-            
-            UIView *topView = self.window.rootViewController.view;
             
             [_addAccessView setTranslatesAutoresizingMaskIntoConstraints:NO];
             
@@ -135,6 +131,8 @@
 {
     [_addAccessView removeFromSuperview];
     _addAccessView = nil;
+    [_backgroundView removeFromSuperview];
+    _backgroundView = nil;
     
     [self.delegate grownUpCheckControlAnsweredCorrectly:self];
 
