@@ -13,6 +13,9 @@
 
 @implementation SimpleAddAccessView
 
+NSInteger const SIMPLE_ADD_ACCESS_VIEW_WIDTH = 320;
+NSInteger const SIMPLE_ADD_ACCESS_VIEW_HEIGHT = 480;
+
 NSString *_originalQuestion;
 NSString *_expectedAnswer;
 NSString *_userAnswer;
@@ -37,8 +40,6 @@ NSArray *_numberButtons;
     _expectedAnswer = [NSString stringWithFormat:@"%d", answer];
     _userAnswer = @"";
     _originalQuestion = [NSString stringWithFormat:@"%d + %d =", firstNum, secondNum];
-    
-    self.backgroundColor = [UIColor blueColor];
     
     [self setupButtons];
     

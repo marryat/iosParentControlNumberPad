@@ -64,25 +64,50 @@
             _addAccessView.delegate = self;
             [self.superview addSubview:_addAccessView];
             
-            NSLog(@"superview dimensions (%f, %f)", self.superview.frame.size.width, self.superview.frame.size.height);
-            NSLog(@"first simpleView (%f, %f, %f, %f)", _addAccessView.frame.origin.x, _addAccessView.frame.origin.y, _addAccessView.frame.size.width, _addAccessView.frame.size.height);
+            UIView *topView = self.window.rootViewController.view;
             
-            NSDictionary* viewDictionary = NSDictionaryOfVariableBindings(_addAccessView, self.superview);
+            [_addAccessView setTranslatesAutoresizingMaskIntoConstraints:NO];
             
+            NSLayoutConstraint *centerXConstraint = [NSLayoutConstraint
+                                                     constraintWithItem:_addAccessView
+                                                     attribute:NSLayoutAttributeCenterX
+                                                     relatedBy:NSLayoutRelationEqual
+                                                     toItem:topView
+                                                     attribute:NSLayoutAttributeCenterX
+                                                     multiplier:1
+                                                     constant:0];
             
-            [self.superview addConstraints:[NSLayoutConstraint
-                                            constraintsWithVisualFormat:@"H:|-[_addAccessView]-|"
-                                            options:0
-                                            metrics:nil
-                                            views:viewDictionary]];
-            [self.superview addConstraints:[NSLayoutConstraint
-                                            constraintsWithVisualFormat:@"V:|-[_addAccessView]-|"
-                                            options:0
-                                            metrics:nil
-                                            views:viewDictionary]];
+            NSLayoutConstraint *centerYConstraint = [NSLayoutConstraint
+                                                     constraintWithItem:_addAccessView
+                                                     attribute:NSLayoutAttributeCenterY
+                                                     relatedBy:NSLayoutRelationEqual
+                                                     toItem:topView
+                                                     attribute:NSLayoutAttributeCenterY
+                                                     multiplier:1
+                                                     constant:0];
             
-            NSLog(@"first simpleView (%f, %f, %f, %f)", _addAccessView.frame.origin.x, _addAccessView.frame.origin.y, _addAccessView.frame.size.width, _addAccessView.frame.size.height);
-            ;
+            NSLayoutConstraint *widthConstraint = [NSLayoutConstraint
+                                                   constraintWithItem:_addAccessView
+                                                   attribute:NSLayoutAttributeWidth
+                                                   relatedBy:NSLayoutRelationEqual
+                                                   toItem:nil
+                                                   attribute:NSLayoutAttributeNotAnAttribute
+                                                   multiplier:1.0
+                                                   constant:SIMPLE_ADD_ACCESS_VIEW_WIDTH];
+            
+            NSLayoutConstraint *heightConstraint = [NSLayoutConstraint
+                                                    constraintWithItem:_addAccessView
+                                                    attribute:NSLayoutAttributeHeight
+                                                    relatedBy:NSLayoutRelationEqual
+                                                    toItem:nil
+                                                    attribute:NSLayoutAttributeNotAnAttribute
+                                                    multiplier:1.0
+                                                    constant:SIMPLE_ADD_ACCESS_VIEW_HEIGHT];
+            
+            [topView addConstraint:centerXConstraint];
+            [topView addConstraint:centerYConstraint];
+            [_addAccessView addConstraint:widthConstraint];
+            [_addAccessView addConstraint:heightConstraint];
            
         }
     }

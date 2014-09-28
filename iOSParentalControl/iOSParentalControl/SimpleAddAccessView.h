@@ -19,6 +19,9 @@
 
 @interface SimpleAddAccessView : UIView
 
+extern NSInteger const SIMPLE_ADD_ACCESS_VIEW_WIDTH;
+extern NSInteger const SIMPLE_ADD_ACCESS_VIEW_HEIGHT;
+
 @property (weak, nonatomic) IBOutlet UIButton *number1Button;
 @property (weak, nonatomic) IBOutlet UIButton *number2Button;
 @property (weak, nonatomic) IBOutlet UIButton *number3Button;
@@ -38,5 +41,7 @@
 @property (weak, nonatomic) id <SimpleAddAccessViewDelegate> delegate;
 
 - (void)initialiseQuestion;
+
+
 
 @end
