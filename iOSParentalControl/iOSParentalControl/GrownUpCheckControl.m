@@ -27,7 +27,8 @@
     if (self) {
         _buttonTitle = @"Grownup's press here";
         _highlightColor = [UIColor greenColor];
-        _backgroundPinPadViewColor = [UIColor grayColor];
+        _backgroundPinPadViewColor = [UIColor clearColor];
+        _pinPadBorderColor = [UIColor grayColor];
         
         CGRect pressFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
         
@@ -62,7 +63,7 @@
             UIView *topView = self.window.rootViewController.view;
             
             _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, topView.frame.size.width, topView.frame.size.height)];
-//            _backgroundView.backgroundColor = _backgroundPinPadViewColor;
+            _backgroundView.backgroundColor = _backgroundPinPadViewColor;
             
             [topView addSubview:_backgroundView];
             
@@ -115,7 +116,7 @@
             [_addAccessView addConstraint:widthConstraint];
             [_addAccessView addConstraint:heightConstraint];
             
-            _addAccessView.layer.borderColor = [UIColor grayColor].CGColor;
+            _addAccessView.layer.borderColor = _pinPadBorderColor.CGColor;
             _addAccessView.layer.borderWidth = 1.0f;
             
            
@@ -142,6 +143,14 @@
 {
     _buttonTitle = buttonTitle;
     _labelForHoldView.text = buttonTitle;
+}
+
+- (void)setPinPadBorderColor:(UIColor *)pinPadBorderColor
+{
+    _pinPadBorderColor = pinPadBorderColor;
+    if (_addAccessView != nil) {
+        _addAccessView.layer.borderColor = _pinPadBorderColor.CGColor;
+    }
 }
 
 /*

@@ -26,6 +26,7 @@
 @property (nonatomic) UIColor *highlightColor;
 @property (nonatomic, assign) float durationOfHold;
 @property (nonatomic) UIColor *backgroundPinPadViewColor;
+@property (nonatomic) UIColor *pinPadBorderColor;
 
 @property (nonatomic, weak) id <GrownUpCheckControlEventDelegate> delegate;
 
