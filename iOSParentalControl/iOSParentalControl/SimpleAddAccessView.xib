@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
@@ -12,7 +13,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMt-3E-PV9">
-                    <rect key="frame" x="42" y="134" width="80" height="80"/>
+                    <rect key="frame" x="41" y="134" width="80" height="80"/>
                     <color key="backgroundColor" red="0.4549019608" green="0.75294117650000003" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="KrV-rP-pMZ"/>
@@ -26,7 +27,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO7-8j-Qh7">
-                    <rect key="frame" x="121" y="134" width="80" height="80"/>
+                    <rect key="frame" x="120" y="134" width="80" height="80"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="XLP-OV-03b"/>
@@ -41,7 +42,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GId-vI-w5P">
-                    <rect key="frame" x="200" y="134" width="80" height="80"/>
+                    <rect key="frame" x="199" y="134" width="80" height="80"/>
                     <color key="backgroundColor" red="0.4549019608" green="0.75294117650000003" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="1Dl-OP-nul"/>
@@ -191,6 +192,15 @@
                         <action selector="deleteButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="ePl-jb-jgF"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4f-eE-6wE">
+                    <rect key="frame" x="266" y="8" width="48" height="30"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="4zR-Ta-sS1"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -218,7 +228,7 @@
                 <constraint firstItem="jbx-pe-yuc" firstAttribute="leading" secondItem="Hh4-KR-NLq" secondAttribute="trailing" constant="-1" id="iBM-dN-Kcl"/>
                 <constraint firstItem="Xdy-yr-ffj" firstAttribute="top" secondItem="cMt-3E-PV9" secondAttribute="bottom" constant="-1" id="ndb-av-27I"/>
                 <constraint firstItem="O5U-Rq-dvO" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="57" id="oSm-Qj-uvu"/>
-                <constraint firstAttribute="centerX" secondItem="PO7-8j-Qh7" secondAttribute="centerX" constant="-0.5" id="wo5-MZ-cgd"/>
+                <constraint firstAttribute="centerX" secondItem="PO7-8j-Qh7" secondAttribute="centerX" id="wo5-MZ-cgd"/>
                 <constraint firstItem="Y8D-C8-9Jg" firstAttribute="top" secondItem="KT1-ta-sOa" secondAttribute="bottom" constant="-1" id="woy-UJ-t8s"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

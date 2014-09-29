@@ -16,6 +16,7 @@
 - (void) grownUpCheckControlAnsweredCorrectly:(GrownUpCheckControl *)sender;
 @optional
 - (void) grownUpCheckControlAnsweredIncorrectly:(GrownUpCheckControl *)sender;
+- (void) grownUpCheckControlCancelled:(GrownUpCheckControl *)sender;
 
 @end
 
@@ -24,6 +25,7 @@
 @property (nonatomic) NSString *buttonTitle;
 @property (nonatomic) UIColor *highlightColor;
 @property (nonatomic, assign) float durationOfHold;
+@property (nonatomic) UIColor *backgroundPinPadViewColor;
 
 @property (nonatomic, weak) id <GrownUpCheckControlEventDelegate> delegate;
 

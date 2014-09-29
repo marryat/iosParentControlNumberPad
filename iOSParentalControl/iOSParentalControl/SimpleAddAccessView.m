@@ -121,5 +121,8 @@ NSArray *_numberButtons;
     }
 }
 
+- (IBAction)cancelAction:(id)sender {
+    [self.delegate cancelPanel:self];
+}
 
 @end

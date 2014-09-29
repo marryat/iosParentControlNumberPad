@@ -7,6 +7,7 @@
 //
 
 #import "GrownUpCheckControl.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface GrownUpCheckControl ()
 
@@ -26,6 +27,7 @@
     if (self) {
         _buttonTitle = @"Grownup's press here";
         _highlightColor = [UIColor greenColor];
+        _backgroundPinPadViewColor = [UIColor grayColor];
         
         CGRect pressFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
         
@@ -53,6 +55,7 @@
             UIView *topView = self.window.rootViewController.view;
             
             _backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, topView.frame.size.width, topView.frame.size.height)];
+//            _backgroundView.backgroundColor = _backgroundPinPadViewColor;
             
             [topView addSubview:_backgroundView];
             
@@ -104,6 +107,10 @@
             [topView addConstraint:centerYConstraint];
             [_addAccessView addConstraint:widthConstraint];
             [_addAccessView addConstraint:heightConstraint];
+            
+            _addAccessView.layer.borderColor = [UIColor grayColor].CGColor;
+            _addAccessView.layer.borderWidth = 1.0f;
+            
            
         }
     }
@@ -113,7 +120,15 @@
 {
     _durationOfHold = durationOfHold;
     _longPressGesture.minimumPressDuration = durationOfHold;
-    
+}
+
+- (void)setBackgroundPinPadViewColor:(UIColor *)backgroundPinPadViewColor
+{
+    _backgroundPinPadViewColor = backgroundPinPadViewColor;
+    if (_backgroundView != nil)
+    {
+        _backgroundView.backgroundColor = backgroundPinPadViewColor;
+    }
 }
 
 
@@ -125,17 +140,32 @@
 }
 */
 
-#pragma mark - SimpleAddAccessViewDelegate
-
-- (void)answerIsCorrect:(SimpleAddAccessView *)sender
+- (void)hideUiElementsOnCompletion
 {
     [_addAccessView removeFromSuperview];
     _addAccessView = nil;
     [_backgroundView removeFromSuperview];
     _backgroundView = nil;
+}
+
+#pragma mark - SimpleAddAccessViewDelegate
+
+- (void)answerIsCorrect:(SimpleAddAccessView *)sender
+{
+    [self hideUiElementsOnCompletion];
     
     [self.delegate grownUpCheckControlAnsweredCorrectly:self];
 
+}
+
+- (void)cancelPanel:(SimpleAddAccessView *)sender
+{
+    [self hideUiElementsOnCompletion];
+
+    if ([self.delegate respondsToSelector:@selector(grownUpCheckControlCancelled:)])
+    {
+        [self.delegate grownUpCheckControlCancelled:self];
+    }
 }
 
 - (void)answerIsIncorrect:(SimpleAddAccessView *)sender

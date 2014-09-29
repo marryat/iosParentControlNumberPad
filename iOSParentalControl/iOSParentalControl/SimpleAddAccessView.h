@@ -14,6 +14,7 @@
 
 - (void)answerIsCorrect:(SimpleAddAccessView *)sender;
 - (void)answerIsIncorrect:(SimpleAddAccessView *)sender;
+- (void)cancelPanel:(SimpleAddAccessView *)sender;
 
 @end
 
