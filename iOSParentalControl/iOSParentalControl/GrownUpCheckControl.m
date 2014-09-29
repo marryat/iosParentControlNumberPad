@@ -15,7 +15,7 @@
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 @property (nonatomic, strong) SimpleAddAccessView *addAccessView;
 @property (nonatomic, strong) UIView *holdView;
-
+@property (nonatomic, strong) UILabel *labelForHoldView;
 
 @end
 
@@ -35,6 +35,13 @@
         [_holdView setBackgroundColor:[UIColor redColor]];
 
         [self addSubview:_holdView];
+        
+        _labelForHoldView = [[UILabel alloc] initWithFrame:pressFrame];
+        _labelForHoldView.text = _buttonTitle;
+        
+        _labelForHoldView.textAlignment = NSTextAlignmentCenter;
+        
+        [self addSubview:_labelForHoldView];
         
         _longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
         _longPressGesture.minimumPressDuration = 3.0f;
@@ -131,6 +138,11 @@
     }
 }
 
+- (void)setButtonTitle:(NSString *)buttonTitle
+{
+    _buttonTitle = buttonTitle;
+    _labelForHoldView.text = buttonTitle;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
