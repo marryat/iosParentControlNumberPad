@@ -8,14 +8,16 @@
 
 #import "GrownUpCheckControl.h"
 #import <QuartzCore/QuartzCore.h>
+#import "HoldButtonLayer.h"
 
 @interface GrownUpCheckControl ()
 
 @property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
 @property (nonatomic, strong) SimpleAddAccessView *addAccessView;
-@property (nonatomic, strong) UIView *holdView;
 @property (nonatomic, strong) UILabel *labelForHoldView;
+
+@property (nonatomic, strong) HoldButtonLayer *trackLayer;
 
 @end
 
@@ -29,13 +31,17 @@
         _highlightColor = [UIColor greenColor];
         _backgroundPinPadViewColor = [UIColor clearColor];
         _pinPadBorderColor = [UIColor grayColor];
+        _backgroundHoldColor = [UIColor redColor];
+        _curvaceousness = 2.0;
+        
+        _trackLayer = [HoldButtonLayer layer];
+        _trackLayer.holdButton = self;
+        [self.layer addSublayer:_trackLayer];
+        
+        _trackLayer.frame = CGRectInset(self.bounds, 0, self.bounds.size.height / 3.5);
+        [_trackLayer setNeedsDisplay];
         
         CGRect pressFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
-        
-        _holdView = [[UIView alloc] initWithFrame:pressFrame];
-        [_holdView setBackgroundColor:[UIColor redColor]];
-
-        [self addSubview:_holdView];
         
         _labelForHoldView = [[UILabel alloc] initWithFrame:pressFrame];
         _labelForHoldView.text = _buttonTitle;
@@ -48,7 +54,7 @@
         _longPressGesture.minimumPressDuration = 3.0f;
         _longPressGesture.allowableMovement = 100.0f;
         
-        [_holdView addGestureRecognizer:_longPressGesture];
+        [self addGestureRecognizer:_longPressGesture];
         
     }
     

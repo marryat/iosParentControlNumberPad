@@ -15,6 +15,7 @@
 		8547D10219B867F4005BCA31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8547D10019B867F4005BCA31 /* Main.storyboard */; };
 		8547D10419B867F4005BCA31 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8547D10319B867F4005BCA31 /* Images.xcassets */; };
 		8547D11019B867F5005BCA31 /* iOSParentalControlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8547D10F19B867F5005BCA31 /* iOSParentalControlTests.m */; };
+		8573CE4819DAFB74000E8D89 /* HoldButtonLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8573CE4719DAFB74000E8D89 /* HoldButtonLayer.m */; };
 		857B9F7B19B9221500BD3D6A /* SimpleAddAccessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857B9F7A19B9221500BD3D6A /* SimpleAddAccessView.xib */; };
 		85BB9A4819BB396100FE6786 /* UIButton+IPCAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 85BB9A4719BB396100FE6786 /* UIButton+IPCAdditions.m */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,8 @@
 		8547D10919B867F5005BCA31 /* iOSParentalControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSParentalControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8547D10E19B867F5005BCA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8547D10F19B867F5005BCA31 /* iOSParentalControlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOSParentalControlTests.m; sourceTree = "<group>"; };
+		8573CE4619DAFB74000E8D89 /* HoldButtonLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoldButtonLayer.h; sourceTree = "<group>"; };
+		8573CE4719DAFB74000E8D89 /* HoldButtonLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoldButtonLayer.m; sourceTree = "<group>"; };
 		857B9F7A19B9221500BD3D6A /* SimpleAddAccessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SimpleAddAccessView.xib; sourceTree = "<group>"; };
 		85BB9A4619BB396100FE6786 /* UIButton+IPCAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+IPCAdditions.h"; sourceTree = "<group>"; };
 		85BB9A4719BB396100FE6786 /* UIButton+IPCAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+IPCAdditions.m"; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				8547D0FE19B867F4005BCA31 /* ViewController.m */,
 				8517104919CF759400C4466E /* GrownUpCheckControl.h */,
 				8517104A19CF759400C4466E /* GrownUpCheckControl.m */,
+				8573CE4619DAFB74000E8D89 /* HoldButtonLayer.h */,
+				8573CE4719DAFB74000E8D89 /* HoldButtonLayer.m */,
 				857B9F7A19B9221500BD3D6A /* SimpleAddAccessView.xib */,
 				853F032F19BA59070042BE39 /* SimpleAddAccessView.h */,
 				853F033019BA59070042BE39 /* SimpleAddAccessView.m */,
@@ -235,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				853F033119BA59070042BE39 /* SimpleAddAccessView.m in Sources */,
+				8573CE4819DAFB74000E8D89 /* HoldButtonLayer.m in Sources */,
 				8547D0FF19B867F4005BCA31 /* ViewController.m in Sources */,
 				85BB9A4819BB396100FE6786 /* UIButton+IPCAdditions.m in Sources */,
 				8517104B19CF759400C4466E /* GrownUpCheckControl.m in Sources */,
