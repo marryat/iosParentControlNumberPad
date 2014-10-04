@@ -33,6 +33,7 @@
         _pinPadBorderColor = [UIColor grayColor];
         _backgroundHoldColor = [UIColor redColor];
         _curvaceousness = 2.0;
+        _holdButtonFont = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
         
         _trackLayer = [HoldButtonLayer layer];
         _trackLayer.holdButton = self;
@@ -47,6 +48,7 @@
         _labelForHoldView.text = _buttonTitle;
         
         _labelForHoldView.textAlignment = NSTextAlignmentCenter;
+        _labelForHoldView.font = _holdButtonFont;
         
         [self addSubview:_labelForHoldView];
         
@@ -157,6 +159,12 @@
     if (_addAccessView != nil) {
         _addAccessView.layer.borderColor = _pinPadBorderColor.CGColor;
     }
+}
+
+- (void)setHoldButtonFont:(UIFont *)holdButtonFont
+{
+    _holdButtonFont = holdButtonFont;
+    _labelForHoldView.font = _holdButtonFont;
 }
 
 /*
