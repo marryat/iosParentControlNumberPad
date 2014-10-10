@@ -25,7 +25,6 @@
 @property (nonatomic) NSString *buttonTitle;
 @property (nonatomic) UIFont *holdButtonFont;
 @property (nonatomic, strong) UIColor *backgroundHoldColor;
-@property (nonatomic) UIColor *highlightColor;
 @property (nonatomic, assign) float durationOfHold;
 @property (nonatomic) UIColor *backgroundPinPadViewColor;
 @property (nonatomic) UIColor *pinPadBorderColor;

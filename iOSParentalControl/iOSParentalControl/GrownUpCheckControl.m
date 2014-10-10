@@ -28,7 +28,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         _buttonTitle = @"Grownup's press here";
-        _highlightColor = [UIColor greenColor];
         _backgroundPinPadViewColor = [UIColor clearColor];
         _pinPadBorderColor = [UIColor grayColor];
         _backgroundHoldColor = [UIColor redColor];
