@@ -12,11 +12,20 @@
 
 @interface GrownUpCheckControl ()
 
-@property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGesture;
-@property (nonatomic, strong) SimpleAddAccessView *addAccessView;
+
+@property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UILabel *labelForHoldView;
 
+@property (nonatomic, strong) SimpleAddAccessView *addAccessView;
+
+//used for the timers to animate the background fill;
+@property (nonatomic, assign) float highlightComplete;
+@property (nonatomic, assign) BOOL gestureInProgress;
+@property (nonatomic, assign) BOOL gestureEnded;
+@property (nonatomic, strong) NSTimer *animationTimer;
+
+//Layers within the button that handle the animation
 @property (nonatomic, strong) HoldButtonLayer *trackLayer;
 
 @end
@@ -33,12 +42,13 @@
         _backgroundHoldColor = [UIColor redColor];
         _curvaceousness = 2.0;
         _holdButtonFont = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
+        _durationOfHold = 3.0f;
         
         _trackLayer = [HoldButtonLayer layer];
         _trackLayer.holdButton = self;
         [self.layer addSublayer:_trackLayer];
         
-        _trackLayer.frame = CGRectInset(self.bounds, 0, self.bounds.size.height / 3.5);
+        _trackLayer.frame = self.bounds;
         [_trackLayer setNeedsDisplay];
         
         CGRect pressFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
@@ -52,8 +62,13 @@
         [self addSubview:_labelForHoldView];
         
         _longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
-        _longPressGesture.minimumPressDuration = 3.0f;
+        _longPressGesture.minimumPressDuration = _durationOfHold;
         _longPressGesture.allowableMovement = 100.0f;
+        
+        _longPressGesture.delegate = self;
+        _gestureInProgress = false;
+        _gestureEnded = false;
+        
         
         [self addGestureRecognizer:_longPressGesture];
         
@@ -126,6 +141,8 @@
             _addAccessView.layer.borderColor = _pinPadBorderColor.CGColor;
             _addAccessView.layer.borderWidth = 1.0f;
             
+            _highlightComplete = 0.0f;
+            [_trackLayer setNeedsDisplay];
            
         }
     }
@@ -208,6 +225,65 @@
     {
         [self.delegate grownUpCheckControlAnsweredIncorrectly:self];
     }
+}
+
+- (void)changePercentageCompleteHighlight:(NSTimer *)timer
+{
+    float highlightComplete = [self highlightComplete] + 0.02;
+    [self setHighlightComplete:highlightComplete];
+    
+    [_trackLayer setNeedsDisplay];
+    
+    if (highlightComplete >= 1.0f)
+    {
+        [self setGestureInProgress:false];
+        [[self animationTimer] invalidate];
+    }
+}
+
+- (void)removeHoldPercentageComplete:(NSTimer *)timer
+{
+    float highlightComplete = [self highlightComplete] - 0.05;
+    if (highlightComplete <= 0)
+    {
+        highlightComplete = 0.0f;
+        [[self animationTimer] invalidate];
+    }
+    [self setHighlightComplete:highlightComplete];
+    [[self trackLayer] setNeedsDisplay];
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self animationTimer] invalidate];
+    [self setGestureInProgress:true];
+    [self setHighlightComplete:0.0f];
+    [self setAnimationTimer:[NSTimer
+                             scheduledTimerWithTimeInterval:(_durationOfHold/50)
+                             target:self
+                             selector:@selector(changePercentageCompleteHighlight:)
+                             userInfo:nil
+                             repeats:YES]];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self animationTimer] invalidate];
+    [self setHighlightComplete:0.0f];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[self animationTimer] invalidate];
+    
+    [self setAnimationTimer:[NSTimer
+                             scheduledTimerWithTimeInterval:(_durationOfHold/50)
+                             target:self
+                             selector:@selector(removeHoldPercentageComplete:)
+                             userInfo:nil
+                             repeats:YES]];
 }
 
 @end

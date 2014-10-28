@@ -27,9 +27,8 @@
     //Sets the background colour
     CGContextSetFillColorWithColor(ctx, self.holdButton.backgroundHoldColor.CGColor);
     CGContextFillRect(ctx, CGRectMake(0, 0,
-                                      self.bounds.size.width,
+                                      (self.bounds.size.width * self.holdButton.highlightComplete),
                                       self.bounds.size.height));
-    
     //Applies to highlight using alpha white on top half of the background
     CGRect highlight = CGRectMake(0, self.bounds.size.height/2,
                                   self.bounds.size.width, self.bounds.size.height/2);
