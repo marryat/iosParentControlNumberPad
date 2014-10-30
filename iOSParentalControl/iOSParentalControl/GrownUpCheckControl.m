@@ -18,6 +18,7 @@
 @property (nonatomic, strong) UILabel *labelForHoldView;
 
 @property (nonatomic, strong) HoldButtonLayer *trackLayer;
+@property (nonatomic, strong) CALayer *fillLayer;
 
 @end
 
@@ -33,12 +34,17 @@
         _backgroundHoldColor = [UIColor redColor];
         _curvaceousness = 2.0;
         _holdButtonFont = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
+        _durationOfHold = 3.0f;
+        
+        _fillLayer = [CALayer layer];
+        _fillLayer.backgroundColor = _backgroundHoldColor.CGColor;
+        [self.layer addSublayer:_fillLayer];
+        _fillLayer.frame = [self getThisRectWithWidth:0.0f];
         
         _trackLayer = [HoldButtonLayer layer];
         _trackLayer.holdButton = self;
+        _trackLayer.frame = self.bounds;
         [self.layer addSublayer:_trackLayer];
-        
-        _trackLayer.frame = CGRectInset(self.bounds, 0, self.bounds.size.height / 3.5);
         [_trackLayer setNeedsDisplay];
         
         CGRect pressFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
@@ -52,7 +58,7 @@
         [self addSubview:_labelForHoldView];
         
         _longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];
-        _longPressGesture.minimumPressDuration = 3.0f;
+        _longPressGesture.minimumPressDuration = _durationOfHold;
         _longPressGesture.allowableMovement = 100.0f;
         
         [self addGestureRecognizer:_longPressGesture];
@@ -60,6 +66,12 @@
     }
     
     return self;
+}
+
+- (CGRect)getThisRectWithWidth:(float)width
+{
+    
+    return CGRectMake(self.bounds.origin.x, self.bounds.origin.y, width, self.bounds.size.height);
 }
 
 - (void)longPressAction:(UILongPressGestureRecognizer *)sender
@@ -166,6 +178,12 @@
     _labelForHoldView.font = _holdButtonFont;
 }
 
+- (void)setBackgroundHoldColor:(UIColor *)backgroundHoldColor
+{
+    _backgroundHoldColor = backgroundHoldColor;
+    _fillLayer.backgroundColor = backgroundHoldColor.CGColor;
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -208,6 +226,25 @@
     {
         [self.delegate grownUpCheckControlAnsweredIncorrectly:self];
     }
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    _fillLayer.frame = [self getThisRectWithWidth:0.0f];
+    
+    [UIView animateWithDuration:_durationOfHold
+                     animations:^{
+                         _fillLayer.frame = [self getThisRectWithWidth:self.bounds.size.width];
+                     }
+                     completion:nil];
+    
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
 }
 
 @end

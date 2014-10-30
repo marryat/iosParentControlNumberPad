@@ -25,7 +25,7 @@
     CGContextClip(ctx);
     
     //Sets the background colour
-    CGContextSetFillColorWithColor(ctx, self.holdButton.backgroundHoldColor.CGColor);
+//    CGContextSetFillColorWithColor(ctx, self.holdButton.backgroundHoldColor.CGColor);
     CGContextFillRect(ctx, CGRectMake(0, 0,
                                       self.bounds.size.width,
                                       self.bounds.size.height));

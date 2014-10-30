@@ -20,7 +20,7 @@
 
 @end
 
-@interface GrownUpCheckControl : UIControl <SimpleAddAccessViewDelegate>
+@interface GrownUpCheckControl : UIControl <SimpleAddAccessViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) NSString *buttonTitle;
 @property (nonatomic) UIFont *holdButtonFont;
