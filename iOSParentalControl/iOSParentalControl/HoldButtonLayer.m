@@ -83,5 +83,4 @@
     _percentageHighlight = percentageHighlight;
 }
 
-
 @end

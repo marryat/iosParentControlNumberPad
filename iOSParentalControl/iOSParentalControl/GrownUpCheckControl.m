@@ -231,6 +231,8 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     
+    [_trackLayer removeAnimationForKey:@"percentageHighlight"];
+    
     [[self trackLayer] setPercentageHighlight:0.0f];
     
     CABasicAnimation *layerAnimation = [CABasicAnimation animationWithKeyPath:@"percentageHighlight"];
@@ -240,29 +242,35 @@
     layerAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     
     [_trackLayer addAnimation:layerAnimation forKey:@"percentageHighlight"];
- 
- 
+    
+    [self setLayerAnimation:layerAnimation];
+
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-/*    [[self animationTimer] invalidate];
-    [self setHighlightComplete:0.0f];
- */
+    [_trackLayer removeAnimationForKey:@"percentageHighlight"];
+    
+    [_trackLayer setPercentageHighlight:0.0f];
+    
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    /*
-    [[self animationTimer] invalidate];
+
+    float currentHighlight = [(HoldButtonLayer *)_trackLayer.presentationLayer percentageHighlight];
     
-    [self setAnimationTimer:[NSTimer
-                             scheduledTimerWithTimeInterval:(_durationOfHold/50)
-                             target:self
-                             selector:@selector(removeHoldPercentageComplete:)
-                             userInfo:nil
-                             repeats:YES]];
-     */
+    [_trackLayer removeAnimationForKey:@"percentageHighlight"];
+    
+    CABasicAnimation *layerAnimation = [CABasicAnimation animationWithKeyPath:@"percentageHighlight"];
+    layerAnimation.duration = _durationOfHold / 10;
+    layerAnimation.fromValue = [NSNumber numberWithFloat:currentHighlight];
+    layerAnimation.toValue = [NSNumber numberWithFloat:0.0f];
+    layerAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    
+    [_trackLayer addAnimation:layerAnimation forKey:@"percentageHighlight"];
+    
+    [self setLayerAnimation:layerAnimation];
 }
 
 @end
