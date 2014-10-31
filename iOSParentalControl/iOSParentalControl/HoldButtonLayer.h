@@ -13,5 +13,6 @@
 @interface HoldButtonLayer : CALayer
 
 @property (weak) GrownUpCheckControl *holdButton;
+@property (nonatomic, assign) float percentageHighlight;
 
 @end

@@ -11,6 +11,19 @@
 
 @implementation HoldButtonLayer
 
+//Implemented so animation works
+- (instancetype)initWithLayer:(id)layer
+{
+    self = [super initWithLayer:layer];
+    if (self) {
+        if ([layer isKindOfClass:[HoldButtonLayer class]]) {
+            self.holdButton = [(HoldButtonLayer *)layer holdButton];
+        }
+    }
+    
+    return self;
+}
+
 - (void)drawInContext:(CGContextRef)ctx
 {
     
@@ -27,7 +40,7 @@
     //Sets the background colour
     CGContextSetFillColorWithColor(ctx, self.holdButton.backgroundHoldColor.CGColor);
     CGContextFillRect(ctx, CGRectMake(0, 0,
-                                      (self.bounds.size.width * self.holdButton.highlightComplete),
+                                      (self.bounds.size.width * (self.percentageHighlight/100)),
                                       self.bounds.size.height));
     //Applies to highlight using alpha white on top half of the background
     CGRect highlight = CGRectMake(0, self.bounds.size.height/2,
@@ -51,6 +64,23 @@
     CGContextSetLineWidth(ctx, 0.5);
     CGContextStrokePath(ctx);
     
+}
+
++ (BOOL)needsDisplayForKey:(NSString *)key
+{
+    if ([key isEqualToString:@"percentageHighlight"])
+    {
+        return YES;
+    }
+    else
+    {
+        return [super needsDisplayForKey:key];
+    }
+}
+
+- (void)setPercentageHighlight:(float)percentageHighlight
+{
+    _percentageHighlight = percentageHighlight;
 }
 
 

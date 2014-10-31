@@ -29,7 +29,6 @@
 @property (nonatomic) UIColor *backgroundPinPadViewColor;
 @property (nonatomic) UIColor *pinPadBorderColor;
 @property (nonatomic) float curvaceousness;
-@property (nonatomic, assign, readonly) float highlightComplete;
 
 @property (nonatomic, weak) id <GrownUpCheckControlEventDelegate> delegate;
 
