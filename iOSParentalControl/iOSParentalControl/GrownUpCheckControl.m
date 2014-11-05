@@ -38,10 +38,11 @@
         _buttonTitle = @"Grownup's press here";
         _backgroundPinPadViewColor = [UIColor clearColor];
         _pinPadBorderColor = [UIColor grayColor];
-        _backgroundHoldColor = [UIColor redColor];
-        _curvaceousness = 2.0;
-        _holdButtonFont = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
+        _highlightHoldColor = [UIColor redColor];
+        _holdButtonCurvaceousness = 2.0;
+        _buttonFont = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
         _durationOfHold = 3.0f;
+        _backgroundButtonColor = [UIColor greenColor];
         
         _trackLayer = [HoldButtonLayer layer];
         _trackLayer.holdButton = self;
@@ -57,7 +58,7 @@
         _labelForHoldView.text = _buttonTitle;
         
         _labelForHoldView.textAlignment = NSTextAlignmentCenter;
-        _labelForHoldView.font = _holdButtonFont;
+        _labelForHoldView.font = _buttonFont;
         
         [self addSubview:_labelForHoldView];
         
@@ -176,10 +177,10 @@
     }
 }
 
-- (void)setHoldButtonFont:(UIFont *)holdButtonFont
+- (void)setButtonFont:(UIFont *)holdButtonFont
 {
-    _holdButtonFont = holdButtonFont;
-    _labelForHoldView.font = _holdButtonFont;
+    _buttonFont = holdButtonFont;
+    _labelForHoldView.font = _buttonFont;
 }
 
 /*

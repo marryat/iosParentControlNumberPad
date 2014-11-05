@@ -29,7 +29,7 @@
     
 //www.raywenderlich.com/36288/how-to-make-a-custom-control
     //create curved track
-    float cornerRadius = self.bounds.size.height * self.holdButton.curvaceousness / 2.0;
+    float cornerRadius = self.bounds.size.height * self.holdButton.holdButtonCurvaceousness / 2.0;
     UIBezierPath *switchOutline = [UIBezierPath
                                    bezierPathWithRoundedRect:self.bounds
                                    cornerRadius:cornerRadius];
@@ -37,16 +37,25 @@
     CGContextAddPath(ctx, switchOutline.CGPath);
     CGContextClip(ctx);
     
-    //Sets the background colour
-    CGContextSetFillColorWithColor(ctx, self.holdButton.backgroundHoldColor.CGColor);
+    //Sets Background Colour
+    CGContextSetFillColorWithColor(ctx, self.holdButton.backgroundButtonColor.CGColor);
+    CGContextFillRect(ctx, CGRectMake(0, 0,
+                                      self.bounds.size.width,
+                                      self.bounds.size.height));
+    
+    
+    //Sets the Highlight Colour
+    CGContextSetFillColorWithColor(ctx, self.holdButton.highlightHoldColor.CGColor);
     CGContextFillRect(ctx, CGRectMake(0, 0,
                                       (self.bounds.size.width * (self.percentageHighlight/100)),
                                       self.bounds.size.height));
+    
+    
     //Applies to highlight using alpha white on top half of the background
     CGRect highlight = CGRectMake(0, self.bounds.size.height/2,
                                   self.bounds.size.width, self.bounds.size.height/2);
     UIBezierPath *highlightPath = [UIBezierPath bezierPathWithRoundedRect:highlight
-                                                             cornerRadius:highlight.size.height * self.holdButton.curvaceousness / 2.0];
+                                                             cornerRadius:highlight.size.height * self.holdButton.holdButtonCurvaceousness / 2.0];
     CGContextAddPath(ctx, highlightPath.CGPath);
     CGContextSetFillColorWithColor(ctx, [UIColor colorWithWhite:1.0 alpha:0.4].CGColor);
     CGContextFillPath(ctx);

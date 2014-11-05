@@ -23,12 +23,14 @@
 @interface GrownUpCheckControl : UIControl <SimpleAddAccessViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic) NSString *buttonTitle;
-@property (nonatomic) UIFont *holdButtonFont;
-@property (nonatomic, strong) UIColor *backgroundHoldColor;
+@property (nonatomic) UIFont *buttonFont;
+@property (nonatomic, strong) UIColor *highlightHoldColor;
+@property (nonatomic, strong) UIColor *backgroundButtonColor;
 @property (nonatomic, assign) float durationOfHold;
+@property (nonatomic) float holdButtonCurvaceousness;
+
 @property (nonatomic) UIColor *backgroundPinPadViewColor;
 @property (nonatomic) UIColor *pinPadBorderColor;
-@property (nonatomic) float curvaceousness;
 
 @property (nonatomic, weak) id <GrownUpCheckControlEventDelegate> delegate;
 
