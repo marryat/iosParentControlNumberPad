@@ -43,6 +43,9 @@
         _buttonFont = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
         _durationOfHold = 3.0f;
         _backgroundButtonColor = [UIColor greenColor];
+        _buttonBorderColor = [UIColor blackColor];
+        _buttonBorderWidth = 0.5f;
+        _buttonFontColor = [UIColor blackColor];
         
         _trackLayer = [HoldButtonLayer layer];
         _trackLayer.holdButton = self;
@@ -59,6 +62,7 @@
         
         _labelForHoldView.textAlignment = NSTextAlignmentCenter;
         _labelForHoldView.font = _buttonFont;
+        _labelForHoldView.textColor = _buttonFontColor;
         
         [self addSubview:_labelForHoldView];
         
@@ -181,6 +185,12 @@
 {
     _buttonFont = holdButtonFont;
     _labelForHoldView.font = _buttonFont;
+}
+
+- (void)setButtonFontColor:(UIColor *)buttonFontColor
+{
+    _buttonFontColor = buttonFontColor;
+    _labelForHoldView.textColor = buttonFontColor;
 }
 
 /*

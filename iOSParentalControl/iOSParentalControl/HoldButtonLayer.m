@@ -69,8 +69,8 @@
     
     // outline the track
     CGContextAddPath(ctx, switchOutline.CGPath);
-    CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
-    CGContextSetLineWidth(ctx, 0.5);
+    CGContextSetStrokeColorWithColor(ctx, self.holdButton.buttonBorderColor.CGColor);
+    CGContextSetLineWidth(ctx, self.holdButton.buttonBorderWidth);
     CGContextStrokePath(ctx);
     
 }

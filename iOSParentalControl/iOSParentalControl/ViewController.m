@@ -31,6 +31,11 @@
     CGRect grownUpFrame = CGRectMake(20, 20, 200, 30);
     _grownUpCheckControl = [[GrownUpCheckControl alloc] initWithFrame:grownUpFrame];
     _grownUpCheckControl.delegate = self;
+    _grownUpCheckControl.backgroundButtonColor = [UIColor blackColor];
+    _grownUpCheckControl.buttonBorderColor = [UIColor whiteColor];
+    _grownUpCheckControl.buttonBorderWidth = 3.0f;
+    _grownUpCheckControl.holdButtonCurvaceousness = 0.5f;
+    _grownUpCheckControl.buttonFontColor = [UIColor whiteColor];
     
     [self.view addSubview:_grownUpCheckControl];
 
