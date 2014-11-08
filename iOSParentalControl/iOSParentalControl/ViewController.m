@@ -36,6 +36,8 @@
     _grownUpCheckControl.buttonBorderWidth = 3.0f;
     _grownUpCheckControl.holdButtonCurvaceousness = 0.5f;
     _grownUpCheckControl.buttonFontColor = [UIColor whiteColor];
+    _grownUpCheckControl.buttonWhiteHighlight = false;
+    _grownUpCheckControl.buttonShadow = false;
     
     [self.view addSubview:_grownUpCheckControl];
 

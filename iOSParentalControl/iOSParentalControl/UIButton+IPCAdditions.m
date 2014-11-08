@@ -12,8 +12,6 @@
 @implementation UIButton (IPCAdditions)
 
 - (void)ipc_ApplyPinButtonStyleAndHighlights {
-    [self.layer setBorderWidth:0.5f];
-    [self.layer setBorderColor:[[UIColor blackColor] CGColor]];
     
     self.backgroundColor = [UIColor groupTableViewBackgroundColor];
     

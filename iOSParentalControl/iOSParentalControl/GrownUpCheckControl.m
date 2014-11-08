@@ -46,6 +46,8 @@
         _buttonBorderColor = [UIColor blackColor];
         _buttonBorderWidth = 0.5f;
         _buttonFontColor = [UIColor blackColor];
+        _buttonWhiteHighlight = true;
+        _buttonShadow = true;
         
         _trackLayer = [HoldButtonLayer layer];
         _trackLayer.holdButton = self;

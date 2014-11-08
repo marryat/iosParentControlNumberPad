@@ -33,6 +33,8 @@
 @property (nonatomic) float holdButtonCurvaceousness;
 @property (nonatomic, strong) UIColor *buttonBorderColor;
 @property (nonatomic, assign) float buttonBorderWidth;
+@property (nonatomic, assign, getter=hasButtonWhiteHighlight) BOOL buttonWhiteHighlight;
+@property (nonatomic, assign, getter=hasButtonShadow) BOOL buttonShadow;
 
 
 @property (nonatomic) UIColor *backgroundPinPadViewColor;
